@@ -1,0 +1,67 @@
+
+MODELO BASE
+
+
+1 - N.º de comiloes [10 30 50], % comida [5 10 20], % residuos [5 10 15] (nLimpadores = 0, nDepositos = 1, depLimp = 0, energia = 100 / 35)
+
+2 - N.º de limpadores [10 30 50], % comida [5 10 20], % residuos [5 10 15] (nComiloes = 0, nDepositos = 3, depLimp = 8, energia = 100 / 35)
+
+3 - N.º de comiloes [10 30 50], % comida [5 10 20], nEnergia [25 50 100] (limpadores = 25, % residuos = 15, nDepositos = 3, depLimp = 8, eGanha = 35)
+
+4 - N.º de comiloes [10 30 50], N.º de limpadores [10 30 50], % residuos [5 10 15] (% comida = 15, nDepositos = 3, depLimp = 8, energia = 100 / 35)
+
+5 - N.º de comiloes [10 30 50], energiaGanha [10 25 40], %comida [5 10 20] (limpadores = 25, % residuos = 15, nDepositos = 3, depLimp = 8, energia = 100)
+
+
+
+
+MODELO MELHORADO
+
+
+1 - Transformadores (moveis) c/ trocas (fixas) alteram a sobrevivencia dos comiloes
+
+    N.º de comilões [10 30 50], % comida [5 10 20], Transformadores [2 5 10]
+
+
+2 - Transformadores (fixos) c/ trocas (moveis) alteram a sobrevivencia dos comiloes
+
+    N.º de comilões [10 30 50], % comida [5 10 20], nTrocas [3 6 12]
+
+
+3 - Partilha de lixo entre limpadores (fixos) c/ taxa de residuos (moveis) altera a sobrevivencia dos comiloes
+
+    N.º de comiloes [10 30 50], % residuos [5 10 15], nLimTrade [6 8 10]
+
+
+4 - Partilha de lixo entre limpadores (moveis) c/ taxa de residuos (fixos) altera a sobrevivencia dos comiloes
+
+    N.º de comiloes [10 30 50], N.º de limpadores [10 30 50], nLimTrade [6 8 10]
+
+
+5 - Transformadores transformam lixo em energia e os limpadores trocam lixo entre si alteram a sobrevivencia dos comiloes
+
+    N.º de comiloes [10 30 50], nTrocas [3 6 12], nLimTrade [6 8 10]
+
+
+["nComiloes" 10 30 50]			["nComiloes" 10 30 50]			["nComiloes" 10 30 50]			["nComiloes" 10 30 50]			["nComiloes" 10 30 50]
+["ProbComida" 5 10 20]			["ProbComida" 5 10 20]			["ProbRes" 5 10 15]			["nLimpadores" 10 30 50]		["Transformadores?" true]
+["Transformadores?" true]		["Transformadores?" true]		["ShareResiduos?" true]			["ShareResiduos?" true]			["ntrocas" 3 6 12]
+["nTransformadores" 2 5 10]		["nTransformadores" 7]			["nLimTrade" 6 8 10]			["nLimTrade" 6 8 10]			["ShareResiduos?" true]
+["ntrocas" 8]				["ntrocas" 3 6 12]													["nLimTrade" 6 8 10]
+
+["nLimpadores" 25]			["nLimpadores" 25]			["nLimpadores" 25]			["ProbRes" 15]				["nLimpadores" 25]
+																				["nTransformadores" 7]
+
+["energiaGanha" 35]			["energiaGanha" 35]			["energiaGanha" 35]			["energiaGanha" 35]			["ProbComida" 15]
+["ProbRes" 15]				["ProbRes" 15]				["ProbComida" 15]			["ProbComida" 15]			["nEnergia" 100]
+["nDepositos" 3]			["nDepositos" 3]			["nDepositos" 3]			["nDepositos" 3]			["energiaGanha" 35]
+
+																				["ProbRes" 10]
+["nDepositoLimpadores" 8]		["nDepositoLimpadores" 8]		["nDepositoLimpadores" 8]		["nDepositoLimpadores" 8]		["nDepositos" 3]
+["nEnergia" 100]			["nEnergia" 100]			["nEnergia" 100]			["nEnergia" 100]			["nDepositoLimpadores" 8]
+
+
+;NÃO INCLUÍDO
+["ShareResiduos?" true]			["ShareResiduos?" true]			["Transformadores?" true]		["Transformadores?" true]
+["nLimTrade" 6]				["nLimTrade" 6]				["nTransformadores" 2 5 10]		["nTransformadores" 2 5 10]
+										["ntrocas" 8]				["ntrocas" 8]
